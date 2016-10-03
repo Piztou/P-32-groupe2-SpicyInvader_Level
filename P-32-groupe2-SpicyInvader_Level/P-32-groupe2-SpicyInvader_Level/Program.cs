@@ -23,6 +23,9 @@ namespace SpicyInvader
             tmrMooveEnememy.Elapsed += new System.Timers.ElapsedEventHandler(MooveEnemy);
             tmrMooveEnememy.Start();
             Console.CursorVisible = false;
+            Console.SetBufferSize(Constant.Level.WINDOWS_WIDTH,Constant.Level.WINDOWS_HEIGHT);
+            Console.SetWindowSize(Constant.Level.WINDOWS_WIDTH, Constant.Level.WINDOWS_HEIGHT);
+            Console.CursorVisible = false;
             Program.CreateEnnemy();
             SpaceShip player = new SpaceShip();
             player.spawnSpaceShip();
