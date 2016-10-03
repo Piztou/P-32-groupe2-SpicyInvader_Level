@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P-32-merkya-SpicyInvader_Level", "P-32-merkya-SpicyInvader_Level\P-32-merkya-SpicyInvader_Level.csproj", "{FB8F5549-8FD8-4BF8-BE36-8E739DC6A56B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P-32-groupe2-SpicyInvader_Level", "P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level.csproj", "{FB8F5549-8FD8-4BF8-BE36-8E739DC6A56B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
