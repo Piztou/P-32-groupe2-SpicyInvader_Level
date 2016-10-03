@@ -25,6 +25,8 @@ namespace SpicyInvader
         const int MAXBORDERRIGHT = 75;
         const int MAXBORDERLEFT = 0;
         const int SHOOTSPEED = 30;
+        const int RESPAWNTIME = 2000;
+        const int INVICIBLETIME = 3500;
         bool isFinish = true;
         bool canMoove = true;
         bool invincible = false;
@@ -76,7 +78,14 @@ namespace SpicyInvader
 
         public void spawnSpaceShip()
         {
-            Level.Write(x, y - 1, SPACESHIP);
+            if (invincible)
+            {
+                Level.Write(x, y - 1, SPACESHIP, ConsoleColor.Cyan);
+            }
+            else
+            {
+                Level.Write(x, y - 1, SPACESHIP);
+            }
             Level.SetHitBox(x, y - 1, SPACESHIP, Constant.Level.ID_PLAYER);
         }
 
@@ -85,7 +94,14 @@ namespace SpicyInvader
             Level.RemoveHitBox(previousPos, y - 1, SPACESHIP);
             Level.SetHitBox(x, y, SPACESHIP, Constant.Level.ID_PLAYER);
             Level.Erase(previousPos, y - 1, SPACESHIP);
-            Level.Write(x, y - 1, SPACESHIP);
+            if (invincible)
+            {
+                Level.Write(x, y - 1, SPACESHIP, ConsoleColor.Cyan);
+            }
+            else
+            {
+                Level.Write(x, y - 1, SPACESHIP);
+            }
         }
 
         public void Shoot()
@@ -108,11 +124,11 @@ namespace SpicyInvader
             {
                 canMoove = false;
                 DestroySpaceShip();
-                Thread.Sleep(2000);
+                Thread.Sleep(RESPAWNTIME);
                 canMoove = true;
                 invincible = true;
                 spawnSpaceShip();
-                Thread.Sleep(2000);
+                Thread.Sleep(INVICIBLETIME);
                 invincible = false;
             }
 
