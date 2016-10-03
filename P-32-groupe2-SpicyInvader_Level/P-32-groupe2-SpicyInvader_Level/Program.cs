@@ -7,10 +7,10 @@ using System.Threading;
 
 namespace SpicyInvader
 {
-    public class Player
+    public static class Player
     {
 
-
+        public static SpaceShip player = new SpaceShip();
 
 
 
@@ -27,7 +27,6 @@ namespace SpicyInvader
             Console.SetWindowSize(Constant.Level.WINDOWS_WIDTH, Constant.Level.WINDOWS_HEIGHT);
             Console.CursorVisible = false;
             Program.CreateEnnemy();
-            SpaceShip player = new SpaceShip();
             player.spawnSpaceShip();
             //initializes all the barricades
             Level.InitBaricades();

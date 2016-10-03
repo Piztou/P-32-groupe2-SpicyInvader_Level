@@ -10,3 +10,9 @@ C:\Users\fasanoan\Desktop\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInva
 C:\Users\fasanoan\Desktop\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\bin\Debug\P-32-groupe2-SpicyInvader_Level.exe
 C:\Users\fasanoan\Desktop\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\bin\Debug\P-32-groupe2-SpicyInvader_Level.pdb
 C:\Users\fasanoan\Desktop\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\obj\Debug\P-32-groupe2-SpicyInvader_Level.csprojResolveAssemblyReference.cache
+C:\Users\balmorira\Desktop\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\bin\Debug\P-32-groupe2-SpicyInvader_Level.exe.config
+C:\Users\balmorira\Desktop\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\obj\Debug\P-32-groupe2-SpicyInvader_Level.exe
+C:\Users\balmorira\Desktop\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\obj\Debug\P-32-groupe2-SpicyInvader_Level.pdb
+C:\Users\balmorira\Desktop\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\bin\Debug\P-32-groupe2-SpicyInvader_Level.exe
+C:\Users\balmorira\Desktop\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\bin\Debug\P-32-groupe2-SpicyInvader_Level.pdb
+C:\Users\balmorira\Desktop\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\obj\Debug\P-32-groupe2-SpicyInvader_Level.csprojResolveAssemblyReference.cache

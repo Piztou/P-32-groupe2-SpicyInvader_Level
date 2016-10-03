@@ -187,7 +187,7 @@ namespace SpicyInvader
             }
             else if (objectHit == Constant.Level.ID_PLAYER)
             {
-                //Level.ShootBaricade(startShotX, startShotY);
+                Player.player.SpaceShipHitted();
                 isFinish = true;
             }
             else
@@ -195,7 +195,7 @@ namespace SpicyInvader
                 Level.Erase(startShotX, startShotY, new string[] { ENNEMY_ARMO });
                 Level.Write(startShotX, startShotY += 1, new string[] { ENNEMY_ARMO }, ConsoleColor.Red);
 
-                if (startShotY > 23)
+                if (startShotY > Constant.Level.WINDOWS_HEIGHT-2)
                 {
                     Level.Erase(startShotX, startShotY, new string[] { ENNEMY_ARMO });
                     isFinish = true;

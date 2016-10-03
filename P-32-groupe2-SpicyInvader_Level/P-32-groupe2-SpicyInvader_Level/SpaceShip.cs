@@ -9,7 +9,7 @@ using System.Timers;
 namespace SpicyInvader
 {
 
-    class SpaceShip
+    public class SpaceShip
     {
 
         public static Mutex mut = new Mutex();
