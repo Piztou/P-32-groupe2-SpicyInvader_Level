@@ -15,7 +15,7 @@ namespace SpicyInvader
         public static Mutex mut = new Mutex();
 
         int x = 35;
-        int y = 23;
+        int y = 27;
         public int startShotY;
         public int startShotX;
         const string PLAYERAMMO = "¦";
@@ -88,15 +88,15 @@ namespace SpicyInvader
 
         public void Shoot()
         {
-            mut.WaitOne();
             startShotY = y - 1;
             startShotX = x + 2;
             while (!isFinish)
             {
+                mut.WaitOne();
                 OnTimedEvent(ref isFinish);
+                mut.ReleaseMutex();
                 Thread.Sleep(SHOOTSPEED);
             }
-            mut.ReleaseMutex();
 
         }
 
