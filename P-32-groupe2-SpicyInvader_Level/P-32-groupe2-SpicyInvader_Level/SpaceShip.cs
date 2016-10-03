@@ -26,6 +26,8 @@ namespace SpicyInvader
         const int MAXBORDERLEFT = 0;
         const int SHOOTSPEED = 30;
         bool isFinish = true;
+        bool canMoove = true;
+        bool invincible = false;
         string[] SPACESHIP = new string[] { TOPSHIP, MIDSHIP, BOTTOMSHIP };
         public void Move()
         {
@@ -37,7 +39,7 @@ namespace SpicyInvader
             {
                 key = Console.ReadKey(true);
 
-                if (key.Key == ConsoleKey.Spacebar)
+                if (canMoove && key.Key == ConsoleKey.Spacebar)
                 {
                     mut.WaitOne();
                     if (isFinish)
@@ -47,13 +49,13 @@ namespace SpicyInvader
                     }
                     mut.ReleaseMutex();
                 }
-                else if (key.Key == ConsoleKey.D || key.Key == ConsoleKey.RightArrow && x < MAXBORDERRIGHT)
+                else if (canMoove && (key.Key == ConsoleKey.D || key.Key == ConsoleKey.RightArrow && x < MAXBORDERRIGHT))
                 {
                     previousPos = x;
                     x++;
                     RefreshSpaceShip(x, previousPos);
                 }
-                else if (key.Key == ConsoleKey.A || key.Key == ConsoleKey.LeftArrow && x > MAXBORDERLEFT)
+                else if (canMoove && (key.Key == ConsoleKey.A || key.Key == ConsoleKey.LeftArrow && x > MAXBORDERLEFT))
                 {
                     previousPos = x;
                     x--;
@@ -102,8 +104,18 @@ namespace SpicyInvader
 
         public void SpaceShipHitted()
         {
-            DestroySpaceShip();
-            spawnSpaceShip();
+            if (!invincible)
+            {
+                canMoove = false;
+                DestroySpaceShip();
+                Thread.Sleep(2000);
+                canMoove = true;
+                invincible = true;
+                spawnSpaceShip();
+                Thread.Sleep(2000);
+                invincible = false;
+            }
+
         }
         
         public void DestroySpaceShip()
