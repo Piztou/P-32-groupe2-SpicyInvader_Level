@@ -22,7 +22,7 @@ namespace SpicyInvader
 
             public const int WINDOWS_WIDTH = 80;
 
-            public const int WINDOWS_HEIGHT = 25;
+            public const int WINDOWS_HEIGHT = 30;
 
             public class Barricades
             {
