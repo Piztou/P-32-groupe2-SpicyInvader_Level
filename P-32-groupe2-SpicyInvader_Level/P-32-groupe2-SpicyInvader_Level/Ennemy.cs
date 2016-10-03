@@ -21,6 +21,10 @@ using System.Threading;
 /// Date : 26.09.2016
 /// Version : 2.0.0
 /// Description : Adding destroy methode and hit methode and the ennemies can fire
+/// 
+/// Date : 03.10.2016
+/// Version : 2.1.0
+/// Description : the ennemies sprites can now being modified (size)
 /// </summary>
 namespace SpicyInvader
 {
@@ -88,8 +92,7 @@ namespace SpicyInvader
         public bool MoveEnnemy(bool _right)
         {
             //Erase the ennemies
-            Level.Erase(ennemyPos[0], ennemyPos[1], new string[] { ennemyStyle[numberOfStyle, (frameNumber % 2), 0], ennemyStyle[numberOfStyle, (frameNumber % 2), 1] });
-            Level.RemoveHitBox(ennemyPos[0], ennemyPos[1], new string[] { ennemyStyle[numberOfStyle, (frameNumber % 2), 0], ennemyStyle[numberOfStyle, (frameNumber % 2), 1] });
+            EnnemyErase();
             frameNumber++;
 
             //Make ennemy moves left or right
@@ -104,16 +107,13 @@ namespace SpicyInvader
 
 
             //Make ennemy moves down (if the methode return is true, the programm execut the move down methode)
-            if (ennemyPos[0] == 78 && isAlive || ennemyPos[0] == 0 && isAlive)
+            if (ennemyPos[0] == (Constant.Level.WINDOWS_WIDTH - ennemyStyle[0,0,0].Length) && isAlive || ennemyPos[0] == 0 && isAlive)
             {
                 return true;
             }
-
-
-
+            
             //Write only the alive ennemies
-            Level.Write(ennemyPos[0], ennemyPos[1], new string[] { ennemyStyle[numberOfStyle, (frameNumber % 2), 0], ennemyStyle[numberOfStyle, (frameNumber % 2), 1] });
-            Level.SetHitBox(ennemyPos[0], ennemyPos[1], new string[] { ennemyStyle[numberOfStyle, (frameNumber % 2), 0], ennemyStyle[numberOfStyle, (frameNumber % 2), 1] }, Constant.Level.ID_ENNEMY);
+            EnnemyWrite();
 
             return false;
         }
@@ -123,20 +123,18 @@ namespace SpicyInvader
         /// </summary>
         public void MoveEnnemyDown()
         {
-            Level.Erase(ennemyPos[0], ennemyPos[1], new string[] { ennemyStyle[numberOfStyle, (frameNumber % 2), 0], ennemyStyle[numberOfStyle, (frameNumber % 2), 1] });
-            Level.RemoveHitBox(ennemyPos[0], ennemyPos[1], new string[] { ennemyStyle[numberOfStyle, (frameNumber % 2), 0], ennemyStyle[numberOfStyle, (frameNumber % 2), 1] });
+
+            EnnemyErase();
             ennemyPos[1]++;
 
-            Level.Write(ennemyPos[0], ennemyPos[1], new string[] { ennemyStyle[numberOfStyle, (frameNumber % 2), 0], ennemyStyle[numberOfStyle, (frameNumber % 2), 1] });
-            Level.SetHitBox(ennemyPos[0], ennemyPos[1], new string[] { ennemyStyle[numberOfStyle, (frameNumber % 2), 0], ennemyStyle[numberOfStyle, (frameNumber % 2), 1] }, Constant.Level.ID_ENNEMY);
+            EnnemyWrite();
+
         }
 
         public void Destroy()
         {
             isAlive = false;
-            Level.Erase(ennemyPos[0], ennemyPos[1], new string[] { ennemyStyle[numberOfStyle, (frameNumber % 2), 0], ennemyStyle[numberOfStyle, (frameNumber % 2), 1] });
-            Level.RemoveHitBox(ennemyPos[0], ennemyPos[1], new string[] { ennemyStyle[numberOfStyle, (frameNumber % 2), 0], ennemyStyle[numberOfStyle, (frameNumber % 2), 1] });
-
+            EnnemyErase();
         }
 
         /// <summary>
@@ -187,6 +185,11 @@ namespace SpicyInvader
                 Level.ShootBaricade(startShotX, startShotY);
                 isFinish = true;
             }
+            else if (objectHit == Constant.Level.ID_PLAYER)
+            {
+                //Level.ShootBaricade(startShotX, startShotY);
+                isFinish = true;
+            }
             else
             {
                 Level.Erase(startShotX, startShotY, new string[] { ENNEMY_ARMO });
@@ -199,6 +202,24 @@ namespace SpicyInvader
 
                 }
             }
+        }
+    
+        /// <summary>
+        /// Erase the ennemy (style and hitbox)
+        /// </summary>
+        public void EnnemyErase()
+        {
+            Level.RemoveHitBox(ennemyPos[0], ennemyPos[1], new string[] { ennemyStyle[numberOfStyle, (frameNumber % 2), 0], ennemyStyle[numberOfStyle, (frameNumber % 2), 1] });
+            Level.Erase(ennemyPos[0], ennemyPos[1], new string[] { ennemyStyle[numberOfStyle, (frameNumber % 2), 0], ennemyStyle[numberOfStyle, (frameNumber % 2), 1] });
+        }
+
+        /// <summary>
+        /// Write the ennemy (style and hitbox)
+        /// </summary>
+        public void EnnemyWrite()
+        {
+            Level.SetHitBox(ennemyPos[0], ennemyPos[1], new string[] { ennemyStyle[numberOfStyle, (frameNumber % 2), 0], ennemyStyle[numberOfStyle, (frameNumber % 2), 1] }, Constant.Level.ID_ENNEMY);
+            Level.Write(ennemyPos[0], ennemyPos[1], new string[] { ennemyStyle[numberOfStyle, (frameNumber % 2), 0], ennemyStyle[numberOfStyle, (frameNumber % 2), 1] });
         }
     }
 }
