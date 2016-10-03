@@ -4,34 +4,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/// <summary>
+/// ETML
+/// Author : Raphaël Balmori
+/// 
+/// Date : 03.10.2016
+/// Version : 1.0.0
+/// Description : ...
+/// </summary>
 namespace SpicyInvader
 {
-    class UserInterface
+    public class UserInterface
     {
-        
-        const char BODER_CHAR = '-';
-
-        const string PLAYER_LIFE_TOP = " X ";
-        const string PLAYER_LIFE_MIDLE = "XXX";
-        const string PLAYER_LIFE_BOTTOM = "XXX";
-
+        const char INTERFACE_CHAR = '-';
         public UserInterface()
         {
 
         }
 
-        public void DisplayPlayerLife()
+        public void CreateInterface()
         {
-
-        }
-
-        public void DisplayInterface()
-        {
-            for(int i = 0 ; i < Constant.Level.WINDOWS_WIDTH ; i++)
+            //Create the interface limite
+            for(int i = 0; i < Constant.Level.WINDOWS_WIDTH;i++)
             {
-
+                Console.SetCursorPosition(i, 5);
+                Console.Write(INTERFACE_CHAR);
             }
         }
-        
     }
 }
