@@ -141,7 +141,7 @@ namespace SpicyInvader
                 for (int j = 1; j <= ENNEMY_ARRAY_Y; j++)
                 {
                     //Create the ennemy and add it in the ennemy array
-                    Ennemy ennemy = new Ennemy(j % 3, i * HORIZONTAL_MARGIN, j * VERTICAL_MARGIN, ENNEMY_SHOOT_SPEED, 3, isAlive);
+                    Ennemy ennemy = new Ennemy(j % 3, i * HORIZONTAL_MARGIN, (j * VERTICAL_MARGIN) + 4, ENNEMY_SHOOT_SPEED, 3, isAlive);
                     ennemyArray[i - 1, j - 1] = ennemy;
                 }
             }

@@ -25,11 +25,33 @@ namespace SpicyInvader
         public void CreateInterface()
         {
             //Create the interface limite
-            for(int i = 0; i < Constant.Level.WINDOWS_WIDTH;i++)
+            for (int i = 0; i < Constant.Level.WINDOWS_WIDTH; i++)
             {
-                Console.SetCursorPosition(i, 5);
-                Console.Write(INTERFACE_CHAR);
+                Level.Write(i, 5, new string[]{ Convert.ToString(INTERFACE_CHAR) }, ConsoleColor.DarkCyan);
             }
+
+            DisplayPlayerLife();
+
+            DisplayScore();
+
+
+        }
+
+        /// <summary>
+        /// Display the player lifes
+        /// </summary>
+        public void DisplayPlayerLife()
+        {
+            for(int i = 0; i < 3;i++)
+            {
+                Level.Write(( Constant.Level.WINDOWS_WIDTH - 5) - (i * 5), 2, new string[] { " X ", "XXX" });
+            }
+        }
+
+        public void DisplayScore()
+        {
+            Console.SetCursorPosition(3,4);
+            Console.Write("Score : " + Level.score);
         }
     }
 }

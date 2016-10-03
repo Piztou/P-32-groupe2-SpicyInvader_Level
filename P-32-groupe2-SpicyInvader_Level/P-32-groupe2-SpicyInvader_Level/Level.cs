@@ -50,6 +50,7 @@ namespace SpicyInvader
 
     public class Level
     {
+        public static int score = 0;
 
         public static Mutex mut = new Mutex();
 

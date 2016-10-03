@@ -153,6 +153,9 @@ namespace SpicyInvader
                 Destroy();
                 return true;
             }
+
+            Level.score += 100;
+
             return false;
         }
 
