@@ -1,6 +1,0 @@
-F:\PROJETS\P_Dev\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\obj\Debug\P-32-groupe2-SpicyInvader_Level.csprojResolveAssemblyReference.cache
-F:\PROJETS\P_Dev\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\bin\Debug\P-32-groupe2-SpicyInvader_Level.exe.config
-F:\PROJETS\P_Dev\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\bin\Debug\P-32-groupe2-SpicyInvader_Level.exe
-F:\PROJETS\P_Dev\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\bin\Debug\P-32-groupe2-SpicyInvader_Level.pdb
-F:\PROJETS\P_Dev\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\obj\Debug\P-32-groupe2-SpicyInvader_Level.exe
-F:\PROJETS\P_Dev\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\obj\Debug\P-32-groupe2-SpicyInvader_Level.pdb
