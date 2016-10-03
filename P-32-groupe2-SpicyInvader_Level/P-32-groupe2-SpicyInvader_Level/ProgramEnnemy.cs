@@ -54,20 +54,7 @@ namespace SpicyInvader
         public static Ennemy[,] ennemyArray = new Ennemy[ENNEMY_ARRAY_X, ENNEMY_ARRAY_Y];
 
         //TO DO: Delate
-        static void Main(string[] args)
-        {
-            Console.CursorVisible = false;
-            //SpaceShip.spawnSpaceShip();
-
-            CreateEnnemy();
-
-            do
-            {
-                SleepTimer();
-            } while (0 == 0);
-
-
-        }
+        
 
         /// <summary>
         /// Check every alive ennemy and check if the ennemy positions is the same of the shoot positions
