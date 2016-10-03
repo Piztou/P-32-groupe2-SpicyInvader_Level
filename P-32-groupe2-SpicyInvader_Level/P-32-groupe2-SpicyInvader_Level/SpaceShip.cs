@@ -11,6 +11,9 @@ namespace SpicyInvader
 
     class SpaceShip
     {
+
+        public static Mutex mut = new Mutex();
+
         int x = 35;
         int y = 23;
         public int startShotY;
@@ -36,11 +39,13 @@ namespace SpicyInvader
 
                 if (key.Key == ConsoleKey.Spacebar)
                 {
+                    mut.WaitOne();
                     if (isFinish)
                     {
                         isFinish = false;
                         new Thread(Shoot).Start();
                     }
+                    mut.ReleaseMutex();
                 }
                 else if (key.Key == ConsoleKey.D || key.Key == ConsoleKey.RightArrow && x < MAXBORDERRIGHT)
                 {
@@ -70,17 +75,20 @@ namespace SpicyInvader
         public void spawnSpaceShip()
         {
             Level.Write(x, y - 1, SPACESHIP);
+            Level.SetHitBox(x, y - 1, SPACESHIP, Constant.Level.ID_PLAYER);
         }
 
         public void RefreshSpaceShip(int x, int previousPos)
         {
+            Level.RemoveHitBox(previousPos, y - 1, SPACESHIP);
+            Level.SetHitBox(x, y, SPACESHIP, Constant.Level.ID_PLAYER);
             Level.Erase(previousPos, y - 1, SPACESHIP);
             Level.Write(x, y - 1, SPACESHIP);
         }
 
         public void Shoot()
         {
-
+            mut.WaitOne();
             startShotY = y - 1;
             startShotX = x + 2;
             while (!isFinish)
@@ -88,6 +96,20 @@ namespace SpicyInvader
                 OnTimedEvent(ref isFinish);
                 Thread.Sleep(SHOOTSPEED);
             }
+            mut.ReleaseMutex();
+
+        }
+
+        public void SpaceShipHitted()
+        {
+            DestroySpaceShip();
+            spawnSpaceShip();
+        }
+        
+        public void DestroySpaceShip()
+        {
+            Level.RemoveHitBox(x, y - 1, SPACESHIP);
+            Level.Erase(x, y - 1, SPACESHIP);
 
         }
 
