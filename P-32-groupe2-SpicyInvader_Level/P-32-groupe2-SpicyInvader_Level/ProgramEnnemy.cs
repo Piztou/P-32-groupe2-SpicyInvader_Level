@@ -36,24 +36,28 @@ namespace SpicyInvader
         const int ENNEMY_ARRAY_Y = 4;
 
         //Ennemies margins
-        const int HORIZONTAL_MARGIN = 4;
+        const int HORIZONTAL_MARGIN = 5;
         const int VERTICAL_MARGIN = 3;
 
         //ennemies shoot speed
         const int ENNEMY_SHOOT_SPEED = 50;
 
+        //ennemies shoot tic
+        const int ENNEMY_SHOOT_TIC = 6;
+
+        int curentTic = 0;
+
         //if true : ennemies move right and if false : ennemies move left
         static bool moveRight = true;
-
-        static int varForTest = 0;
 
         //This array contains every ennemies
         public static Ennemy[,] ennemyArray = new Ennemy[ENNEMY_ARRAY_X, ENNEMY_ARRAY_Y];
 
-        /*static void Main(string[] args)
+        //TO DO: Delate
+        static void Main(string[] args)
         {
             Console.CursorVisible = false;
-
+            //SpaceShip.spawnSpaceShip();
 
             CreateEnnemy();
 
@@ -63,7 +67,7 @@ namespace SpicyInvader
             } while (0 == 0);
 
 
-        }*/
+        }
 
         /// <summary>
         /// Check every alive ennemy and check if the ennemy positions is the same of the shoot positions
@@ -86,14 +90,13 @@ namespace SpicyInvader
         /// </summary>
         public static void SleepTimer()
         {
-            varForTest++;
+            /*curentTic++;
 
-            if (varForTest == 6)
+            if (curentTic == ENNEMY_SHOOT_TIC)
             {
+            */
                 WhoShoot();
-                varForTest = 0;
-            }
-
+            //}
 
             //if true : ennemy move down once
             bool arrivedAtBorder = false;
@@ -103,7 +106,6 @@ namespace SpicyInvader
             //CHeck every ennemies for know if one touches the border if it is alive
             foreach (Ennemy ennemy in ennemyArray)
             {
-
                 if (ennemy.isAlive && ennemy.MoveEnnemy(moveRight))
                 {
                     arrivedAtBorder = true;
@@ -138,6 +140,9 @@ namespace SpicyInvader
 
         }
 
+        /// <summary>
+        /// Create every ennemies and dispaly them
+        /// </summary>
         public static void CreateEnnemy()
         {
 
@@ -149,7 +154,7 @@ namespace SpicyInvader
                 for (int j = 1; j <= ENNEMY_ARRAY_Y; j++)
                 {
                     //Create the ennemy and add it in the ennemy array
-                    Ennemy ennemy = new Ennemy(j % 3, i * HORIZONTAL_MARGIN, (j * VERTICAL_MARGIN) - 2, ENNEMY_SHOOT_SPEED, 3, isAlive);
+                    Ennemy ennemy = new Ennemy(j % 3, i * HORIZONTAL_MARGIN, j * VERTICAL_MARGIN, ENNEMY_SHOOT_SPEED, 3, isAlive);
                     ennemyArray[i - 1, j - 1] = ennemy;
                 }
             }
@@ -157,11 +162,17 @@ namespace SpicyInvader
 
         }
 
+        /// <summary>
+        /// Choose whitch ennemy have to shot
+        /// TODO : Write it on the Level.cs
+        /// </summary>
         static void WhoShoot()
         {
+            int rdmEnnemyX;
+            int rdmEnnemyY;
 
-            int rdmEnnemyX = rdm.Next(0, ENNEMY_ARRAY_X);
-            int rdmEnnemyY = rdm.Next(0, ENNEMY_ARRAY_Y);
+            rdmEnnemyX = rdm.Next(0, ENNEMY_ARRAY_X);
+            rdmEnnemyY = rdm.Next(0, ENNEMY_ARRAY_Y);
 
             if (ennemyArray[rdmEnnemyX, rdmEnnemyY].isAlive)
             {
@@ -169,4 +180,6 @@ namespace SpicyInvader
             }
         }
     }
+
+
 }
