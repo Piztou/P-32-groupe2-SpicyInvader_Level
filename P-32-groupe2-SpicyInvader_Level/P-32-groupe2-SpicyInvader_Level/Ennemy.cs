@@ -167,8 +167,11 @@ namespace SpicyInvader
 
         public void Fire ()
         {
+            mut.WaitOne();
             new Thread(Shoot).Start();
+            mut.ReleaseMutex();
         }
+
 
         private void Shoot()
         {
@@ -177,14 +180,14 @@ namespace SpicyInvader
             startShotX = ennemyPos[0];
             startShotY = ennemyPos[1] + 3;
 
+            mut.WaitOne();
             while (!isFinish)
             {
-                mut.WaitOne();
                 OnTimedEvent(ref isFinish);
                 Thread.Sleep(shootSpeed);
-                mut.ReleaseMutex();
             }
 
+            mut.ReleaseMutex();
         }
 
         public void OnTimedEvent(ref bool isFinish)
