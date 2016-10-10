@@ -13,7 +13,33 @@ namespace SpicyInvader
 {
     public class Level
     {
-        public static int score = 0;
+        private static int score = 0;
+        public static int Score
+        {
+            get
+            {
+                return score;
+            }
+            set
+            {
+                score = value;
+                UserInterface.DisplayScore();
+            }
+        }
+
+        private static int playerLife = 3;
+        public static int PlayerLife
+        {
+            get
+            {
+                return playerLife;
+            }
+            set
+            {
+                playerLife = value;
+                UserInterface.DisplayPlayerLife();
+            }
+        }
 
         public static Mutex mut = new Mutex();
 

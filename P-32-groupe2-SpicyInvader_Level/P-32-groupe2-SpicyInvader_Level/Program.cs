@@ -11,17 +11,12 @@ namespace SpicyInvader
     {
 
         public static SpaceShip player = new SpaceShip();
-        public static  UserInterface interfaceUser = new UserInterface();
-
-
 
         private static System.Timers.Timer tmrMooveEnememy = new System.Timers.Timer();
 
 
         static void Main(string[] args)
         {
-
-            interfaceUser.CreateInterface();
 
             tmrMooveEnememy.Interval = 420;
             tmrMooveEnememy.Elapsed += new System.Timers.ElapsedEventHandler(MooveEnemy);

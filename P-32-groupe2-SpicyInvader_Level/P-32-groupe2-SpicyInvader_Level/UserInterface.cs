@@ -14,15 +14,11 @@ using System.Threading.Tasks;
 /// </summary>
 namespace SpicyInvader
 {
-    public class UserInterface
+    public static class UserInterface
     {
         const char INTERFACE_CHAR = '-';
-        public UserInterface()
-        {
 
-        }
-
-        public void CreateInterface()
+        public static void CreateInterface()
         {
             //Create the interface limite
             for (int i = 0; i < Constant.Level.WINDOWS_WIDTH; i++)
@@ -40,18 +36,17 @@ namespace SpicyInvader
         /// <summary>
         /// Display the player lifes
         /// </summary>
-        public void DisplayPlayerLife()
+        public static void DisplayPlayerLife()
         {
-            for(int i = 0; i < 3;i++)
+            for(int i = 0; i < Level.PlayerLife;i++)
             {
                 Level.Write(( Constant.Level.WINDOWS_WIDTH - 5) - (i * 5), 2, new string[] { " X ", "XXX" });
             }
         }
 
-        public void DisplayScore()
+        public static void DisplayScore()
         {
-            Console.SetCursorPosition(3,4);
-            Console.Write("Score : " + Level.score);
+            Level.Write(3, 2, new string[] { "score : " + Level.Score });
         }
     }
 }

@@ -135,6 +135,9 @@ namespace SpicyInvader
         {
             isAlive = false;
             EnnemyErase();
+
+            Level.Score += 100;
+            //UserInterface.DisplayScore();
         }
 
         /// <summary>
@@ -153,8 +156,6 @@ namespace SpicyInvader
                 Destroy();
                 return true;
             }
-
-            Level.score += 100;
 
             return false;
         }
