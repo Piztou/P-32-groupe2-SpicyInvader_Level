@@ -152,6 +152,7 @@ namespace SpicyInvader
 
         public void OnTimedEvent(ref bool isFinish)
         {
+            mut.WaitOne();
             int? objectHit = Level.CheckIfObjectHere(startShotX, startShotY);
             if (objectHit == Constant.Level.ID_BARRICADE)
             {
@@ -175,6 +176,7 @@ namespace SpicyInvader
 
                 }
             }
+            mut.ReleaseMutex();
         }
     }
 }
