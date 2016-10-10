@@ -39,6 +39,7 @@ namespace SpicyInvader
 
             do
             {
+                
                 key = Console.ReadKey(true);
 
                 if (canMoove && key.Key == ConsoleKey.Spacebar)
@@ -50,6 +51,7 @@ namespace SpicyInvader
                         new Thread(Shoot).Start();
                     }
                     mut.ReleaseMutex();
+
                 }
                 else if (canMoove && (key.Key == ConsoleKey.D || key.Key == ConsoleKey.RightArrow && x < MAXBORDERRIGHT))
                 {
@@ -66,11 +68,7 @@ namespace SpicyInvader
                 else if (key.Key == ConsoleKey.Escape)
                 {
                     Console.Clear();
-
-
-
                 }
-
 
             } while (true);
 
@@ -113,8 +111,8 @@ namespace SpicyInvader
             {
                 mut.WaitOne();
                 OnTimedEvent(ref isFinish);
-                mut.ReleaseMutex();
                 Thread.Sleep(SHOOTSPEED);
+                mut.ReleaseMutex();
             }
 
         }
@@ -133,9 +131,8 @@ namespace SpicyInvader
                 Thread.Sleep(INVICIBLETIME);
                 invincible = false;
             }
-
         }
-        
+
         public void DestroySpaceShip()
         {
             Level.RemoveHitBox(x, y - 1, SPACESHIP);
