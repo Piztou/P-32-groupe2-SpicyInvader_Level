@@ -17,6 +17,7 @@ namespace SpicyInvader
     public static class UserInterface
     {
         const char INTERFACE_CHAR = '-';
+        const int LIFE_MARGIN = 6;
 
         public static void CreateInterface()
         {
@@ -40,10 +41,13 @@ namespace SpicyInvader
         {
             for(int i = 0; i < Level.PlayerLife;i++)
             {
-                Level.Write(( Constant.Level.WINDOWS_WIDTH - 5) - (i * 5), 2, new string[] { " X ", "XXX" });
+                Level.Write(( Constant.Level.WINDOWS_WIDTH - 5) - (i * LIFE_MARGIN), 2, new string[] { " X ", "XXX" });
             }
         }
 
+        /// <summary>
+        /// Display the player score
+        /// </summary>
         public static void DisplayScore()
         {
             Level.Write(3, 2, new string[] { "score : " + Level.Score });

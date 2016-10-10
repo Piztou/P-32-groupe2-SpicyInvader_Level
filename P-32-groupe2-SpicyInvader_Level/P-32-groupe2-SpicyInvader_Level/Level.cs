@@ -40,7 +40,7 @@ namespace SpicyInvader
                 UserInterface.DisplayPlayerLife();
             }
         }
-
+       
         public static Mutex mut = new Mutex();
 
         /// <summary>

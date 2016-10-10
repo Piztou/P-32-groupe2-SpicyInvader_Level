@@ -17,7 +17,8 @@ namespace SpicyInvader
 
         static void Main(string[] args)
         {
-
+            //Provisoir
+            UserInterface.CreateInterface();
             tmrMooveEnememy.Interval = 420;
             tmrMooveEnememy.Elapsed += new System.Timers.ElapsedEventHandler(MooveEnemy);
             tmrMooveEnememy.Start();
