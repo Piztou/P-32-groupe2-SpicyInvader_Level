@@ -8,9 +8,9 @@ using System.IO;
 
 namespace ConsoleApplication1
 {
-    class Sound
+    public static class Sound
     {
-        private void SoundShot()
+        public static void SoundShot()
         {
             SoundPlayer sound;
             Random rnd = new Random();
@@ -25,19 +25,19 @@ namespace ConsoleApplication1
             sound.Play();
         }
 
-        private void SoundHit()
+        public static void SoundHit()
         {
             SoundPlayer sound = new SoundPlayer("Hit");
             sound.Play();
         }
 
-        private void SoundMenu()
+        public static void SoundMenu()
         {
             SoundPlayer sound = new SoundPlayer("MenuMove");
             sound.Play();
         }
 
-        private void SoundExplosion()
+        public static void SoundExplosion()
         {
             SoundPlayer sound = new SoundPlayer("Explosion");
             sound.Play();
