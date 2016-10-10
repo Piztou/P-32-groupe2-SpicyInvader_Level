@@ -138,6 +138,8 @@ namespace SpicyInvader
             isAlive = false;
             EnnemyErase();
 
+            Sound.SoundHit();
+
             Level.Score += 100;
             //UserInterface.DisplayScore();
         }
