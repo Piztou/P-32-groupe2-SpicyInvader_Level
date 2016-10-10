@@ -140,7 +140,7 @@ namespace SpicyInvader
             }
 
             mut.ReleaseMutex();
-            
+
         }
 
         /// <summary>

@@ -50,7 +50,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="ProgramEnnemy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sound.cs" />
     <Compile Include="SpaceShip.cs" />
     <Compile Include="UserInterface.cs" />
   </ItemGroup>
