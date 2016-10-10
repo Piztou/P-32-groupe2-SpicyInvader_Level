@@ -133,4 +133,7 @@
   <data name="Shot2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Shot2.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="While_She_Sleeps___False_Freedom__8_bit_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\While She Sleeps - False Freedom (8 bit).mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

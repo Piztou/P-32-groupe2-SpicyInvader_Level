@@ -104,5 +104,15 @@ namespace P_32_groupe2_SpicyInvader_Level {
                 return ResourceManager.GetStream("Shot2", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Byte[].
+        /// </summary>
+        internal static byte[] While_She_Sleeps___False_Freedom__8_bit_ {
+            get {
+                object obj = ResourceManager.GetObject("While_She_Sleeps___False_Freedom__8_bit_", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

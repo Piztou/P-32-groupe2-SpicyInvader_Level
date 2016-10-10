@@ -23,7 +23,6 @@ namespace SpicyInvader
         string[] SPACESHIPEXPLODE1 = new string[] { "   ", " x  ", "   " };
         string[] SPACESHIPEXPLODE2 = new string[] { "XXX", "X X", "XXX" };
         string[] SPACESHIPEXPLODE3 = new string[] { " XXX ", "X   X", "X   X", "X   X", " XXX " };
-
         const int MAXBORDERRIGHT = Constant.Level.WINDOWS_WIDTH;
         const int MAXBORDERLEFT = 0;
         const int SHOOTSPEED = 30;
@@ -127,11 +126,11 @@ namespace SpicyInvader
                 canMoove = false;
                 Sound.SoundExplosion();
                 Level.Erase(x, y - 1, SPACESHIP);
-                Level.Write(x + 1, y - 1, SPACESHIPEXPLODE1, ConsoleColor.DarkMagenta);
+                Level.Write(x + 1, y - 1, SPACESHIPEXPLODE1, ConsoleColor.White);
                 Thread.Sleep(500);
-                Level.Write(x + 1, y - 1, SPACESHIPEXPLODE2, ConsoleColor.DarkMagenta);
+                Level.Write(x + 1, y - 1, SPACESHIPEXPLODE2, ConsoleColor.Yellow);
                 Thread.Sleep(500);
-                Level.Write(x, y - 2, SPACESHIPEXPLODE3, ConsoleColor.DarkMagenta);
+                Level.Write(x, y - 2, SPACESHIPEXPLODE3, ConsoleColor.Red);
                 Thread.Sleep(500);
                 Level.Erase(x, y - 2, SPACESHIPEXPLODE3);
                 DestroySpaceShip();
