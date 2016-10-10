@@ -190,7 +190,7 @@ namespace SpicyInvader
             }
             else if (objectHit == Constant.Level.ID_PLAYER)
             {
-                Player.player.SpaceShipHitted();
+                Program.player.SpaceShipHitted();
                 isFinish = true;
             }
             else

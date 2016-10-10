@@ -161,7 +161,7 @@ namespace SpicyInvader
             }
             else if (objectHit == Constant.Level.ID_ENNEMY)
             {
-                Program.HitEnnemy(startShotX, startShotY);
+                Ennemies.HitEnnemy(startShotX, startShotY);
                 isFinish = true;
             }
             else
