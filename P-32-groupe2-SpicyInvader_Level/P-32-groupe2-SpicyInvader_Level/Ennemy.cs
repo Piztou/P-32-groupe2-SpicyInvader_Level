@@ -60,6 +60,8 @@ namespace SpicyInvader
 
         bool isFinish = true;
 
+        Mutex mut = new Mutex();
+
         int startShotX = 0;
         int startShotY = 0;
 
@@ -80,7 +82,7 @@ namespace SpicyInvader
             shootSpeed = _shootSpeed;
             numberOfShootStyle = _shootSpeed;
             isAlive = _alive;
-
+            
             //SetEnnemyTimer();
         }
 
@@ -183,6 +185,7 @@ namespace SpicyInvader
 
         public void OnTimedEvent(ref bool isFinish)
         {
+            mut.WaitOne();
             int? objectHit = Level.CheckIfObjectHere(startShotX, startShotY);
             if (objectHit == Constant.Level.ID_BARRICADE)
             {
@@ -206,6 +209,7 @@ namespace SpicyInvader
 
                 }
             }
+            mut.ReleaseMutex();
         }
     
         /// <summary>

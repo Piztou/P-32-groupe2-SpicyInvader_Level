@@ -53,6 +53,8 @@ namespace SpicyInvader
         //This array contains every ennemies
         public static Ennemy[,] ennemyArray = new Ennemy[ENNEMY_ARRAY_X, ENNEMY_ARRAY_Y];
 
+       static Mutex mut = new Mutex();
+
         //TO DO: Delate
         
 
@@ -160,11 +162,12 @@ namespace SpicyInvader
 
             rdmEnnemyX = rdm.Next(0, ENNEMY_ARRAY_X);
             rdmEnnemyY = rdm.Next(0, ENNEMY_ARRAY_Y);
-
+            mut.WaitOne();
             if (ennemyArray[rdmEnnemyX, rdmEnnemyY].isAlive)
             {
                 ennemyArray[rdmEnnemyX, rdmEnnemyY].Fire();
             }
+            mut.ReleaseMutex();
         }
     }
 
