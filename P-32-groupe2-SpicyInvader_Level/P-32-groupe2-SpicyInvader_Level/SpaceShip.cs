@@ -19,10 +19,12 @@ namespace SpicyInvader
         public int startShotY;
         public int startShotX;
         const string PLAYERAMMO = "¦";
-        const string TOPSHIP = " | | ";
-        const string MIDSHIP = "</^\\>";
-        const string BOTTOMSHIP = " \\H/ ";
-        const int MAXBORDERRIGHT = 75;
+        string[] SPACESHIP = new string[] { " | | ", "</^\\>", " \\H/ " };
+        string[] SPACESHIPEXPLODE1 = new string[] { "   ", " x  ", "   " };
+        string[] SPACESHIPEXPLODE2 = new string[] { "XXX", "X X", "XXX" };
+        string[] SPACESHIPEXPLODE3 = new string[] { " XXX ", "X   X", "X   X", "X   X", " XXX " };
+
+        const int MAXBORDERRIGHT = Constant.Level.WINDOWS_WIDTH;
         const int MAXBORDERLEFT = 0;
         const int SHOOTSPEED = 30;
         const int RESPAWNTIME = 2000;
@@ -30,7 +32,7 @@ namespace SpicyInvader
         bool isFinish = true;
         bool canMoove = true;
         bool invincible = false;
-        string[] SPACESHIP = new string[] { TOPSHIP, MIDSHIP, BOTTOMSHIP };
+        
         public void Move()
         {
 
@@ -121,8 +123,17 @@ namespace SpicyInvader
         {
             if (!invincible)
             {
-                Sound.SoundExplosion();
+                invincible = true;
                 canMoove = false;
+                Sound.SoundExplosion();
+                Level.Erase(x, y - 1, SPACESHIP);
+                Level.Write(x + 1, y - 1, SPACESHIPEXPLODE1, ConsoleColor.DarkMagenta);
+                Thread.Sleep(500);
+                Level.Write(x + 1, y - 1, SPACESHIPEXPLODE2, ConsoleColor.DarkMagenta);
+                Thread.Sleep(500);
+                Level.Write(x, y - 2, SPACESHIPEXPLODE3, ConsoleColor.DarkMagenta);
+                Thread.Sleep(500);
+                Level.Erase(x, y - 2, SPACESHIPEXPLODE3);
                 DestroySpaceShip();
                 Thread.Sleep(RESPAWNTIME);
                 canMoove = true;
