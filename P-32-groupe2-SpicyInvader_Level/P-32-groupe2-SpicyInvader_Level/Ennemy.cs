@@ -177,8 +177,10 @@ namespace SpicyInvader
 
             while (!isFinish)
             {
+                mut.WaitOne();
                 OnTimedEvent(ref isFinish);
                 Thread.Sleep(shootSpeed);
+                mut.ReleaseMutex();
             }
 
         }
