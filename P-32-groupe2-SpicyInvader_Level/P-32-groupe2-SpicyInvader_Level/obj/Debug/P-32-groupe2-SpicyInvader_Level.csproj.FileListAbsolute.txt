@@ -16,3 +16,5 @@ C:\Users\balmorira\Desktop\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInv
 C:\Users\balmorira\Desktop\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\bin\Debug\P-32-groupe2-SpicyInvader_Level.exe
 C:\Users\balmorira\Desktop\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\bin\Debug\P-32-groupe2-SpicyInvader_Level.pdb
 C:\Users\balmorira\Desktop\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\obj\Debug\P-32-groupe2-SpicyInvader_Level.csprojResolveAssemblyReference.cache
+C:\Users\fasanoan\Desktop\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\obj\Debug\P_32_groupe2_SpicyInvader_Level.resources.resources
+C:\Users\fasanoan\Desktop\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\obj\Debug\P-32-groupe2-SpicyInvader_Level.csproj.GenerateResource.Cache

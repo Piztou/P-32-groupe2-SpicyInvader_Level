@@ -106,6 +106,7 @@ namespace SpicyInvader
 
         public void Shoot()
         {
+            Sound.SoundShot();
             startShotY = y - 1;
             startShotX = x + 2;
             while (!isFinish)
@@ -122,6 +123,7 @@ namespace SpicyInvader
         {
             if (!invincible)
             {
+                Sound.SoundExplosion();
                 canMoove = false;
                 DestroySpaceShip();
                 Thread.Sleep(RESPAWNTIME);
