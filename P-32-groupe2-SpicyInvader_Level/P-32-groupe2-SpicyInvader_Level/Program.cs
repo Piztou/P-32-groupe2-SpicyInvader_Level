@@ -7,7 +7,7 @@ using System.Threading;
 
 namespace SpicyInvader
 {
-    public static class Player
+    public static class Program
     {
 
         public static SpaceShip player = new SpaceShip();
@@ -30,7 +30,7 @@ namespace SpicyInvader
             Console.SetBufferSize(Constant.Level.WINDOWS_WIDTH,Constant.Level.WINDOWS_HEIGHT);
             Console.SetWindowSize(Constant.Level.WINDOWS_WIDTH, Constant.Level.WINDOWS_HEIGHT);
             Console.CursorVisible = false;
-            Program.CreateEnnemy();
+            Ennemies.CreateEnnemy();
             player.spawnSpaceShip();
             //initializes all the barricades
             Level.InitBaricades();
@@ -40,7 +40,7 @@ namespace SpicyInvader
         
         public static void MooveEnemy(object sender, EventArgs e)
         {
-            Program.SleepTimer();
+            Ennemies.SleepTimer();
         }
 
     }
