@@ -59,5 +59,50 @@ namespace P_32_groupe2_SpicyInvader_Level {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.IO.UnmanagedMemoryStream semblable à System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Explosion {
+            get {
+                return ResourceManager.GetStream("Explosion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.IO.UnmanagedMemoryStream semblable à System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Hit {
+            get {
+                return ResourceManager.GetStream("Hit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.IO.UnmanagedMemoryStream semblable à System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream MenuMove {
+            get {
+                return ResourceManager.GetStream("MenuMove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.IO.UnmanagedMemoryStream semblable à System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Shot1 {
+            get {
+                return ResourceManager.GetStream("Shot1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.IO.UnmanagedMemoryStream semblable à System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Shot2 {
+            get {
+                return ResourceManager.GetStream("Shot2", resourceCulture);
+            }
+        }
     }
 }
