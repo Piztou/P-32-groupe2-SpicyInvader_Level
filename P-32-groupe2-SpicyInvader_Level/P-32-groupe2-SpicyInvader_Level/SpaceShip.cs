@@ -31,7 +31,7 @@ namespace SpicyInvader
         bool isFinish = true;
         bool canMoove = true;
         bool invincible = false;
-        
+
         public void Move()
         {
 
@@ -40,7 +40,7 @@ namespace SpicyInvader
 
             do
             {
-                
+
                 key = Console.ReadKey(true);
 
                 if (canMoove && key.Key == ConsoleKey.Spacebar)
@@ -68,7 +68,8 @@ namespace SpicyInvader
                 }
                 else if (key.Key == ConsoleKey.Escape)
                 {
-                    Console.Clear();
+
+                    Level.Pause(x, y);
                 }
 
             } while (true);
@@ -110,10 +111,13 @@ namespace SpicyInvader
             startShotX = x + 2;
             while (!isFinish)
             {
-                mut.WaitOne();
-                OnTimedEvent(ref isFinish);
-                Thread.Sleep(SHOOTSPEED);
-                mut.ReleaseMutex();
+                if (!Level.pause)
+                {
+                    mut.WaitOne();
+                    OnTimedEvent(ref isFinish);
+                    Thread.Sleep(SHOOTSPEED);
+                    mut.ReleaseMutex();
+                }
             }
 
         }
@@ -122,6 +126,7 @@ namespace SpicyInvader
         {
             if (!invincible)
             {
+                Level.PlayerLife--;
                 invincible = true;
                 canMoove = false;
                 Sound.SoundExplosion();
@@ -134,12 +139,20 @@ namespace SpicyInvader
                 Thread.Sleep(500);
                 Level.Erase(x, y - 2, SPACESHIPEXPLODE3);
                 DestroySpaceShip();
-                Thread.Sleep(RESPAWNTIME);
-                canMoove = true;
-                invincible = true;
-                spawnSpaceShip();
-                Thread.Sleep(INVICIBLETIME);
-                invincible = false;
+                if (Level.PlayerLife > 0)
+                {
+                    Thread.Sleep(RESPAWNTIME);
+                    canMoove = true;
+                    invincible = true;
+                    spawnSpaceShip();
+                    Thread.Sleep(INVICIBLETIME);
+                    invincible = false;
+                }
+                else
+                {
+                    Level.noMorePlayerLife = true;
+                    Level.EndGame();
+                }
             }
         }
 
@@ -169,11 +182,10 @@ namespace SpicyInvader
                 Level.Erase(startShotX, startShotY, new string[] { PLAYERAMMO });
                 Level.Write(startShotX, startShotY -= 1, new string[] { PLAYERAMMO }, ConsoleColor.Green);
 
-                if (startShotY < 1)
+                if (startShotY < Constant.Level.INTERFACE_BORDER + 2)
                 {
                     Level.Erase(startShotX, startShotY, new string[] { PLAYERAMMO });
                     isFinish = true;
-
                 }
             }
             mut.ReleaseMutex();

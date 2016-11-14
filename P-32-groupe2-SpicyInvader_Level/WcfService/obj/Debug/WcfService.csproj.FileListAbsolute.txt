@@ -1,0 +1,8 @@
+F:\PROJETS\P_Dev\my-git\SpicyInvader\P-32-groupe2-SpicyInvader_Level\WcfService\bin\Debug\WcfService.dll.config
+F:\PROJETS\P_Dev\my-git\SpicyInvader\P-32-groupe2-SpicyInvader_Level\WcfService\bin\Debug\WcfService.dll
+F:\PROJETS\P_Dev\my-git\SpicyInvader\P-32-groupe2-SpicyInvader_Level\WcfService\bin\Debug\WcfService.pdb
+F:\PROJETS\P_Dev\my-git\SpicyInvader\P-32-groupe2-SpicyInvader_Level\WcfService\obj\Debug\WcfService.csprojResolveAssemblyReference.cache
+F:\PROJETS\P_Dev\my-git\SpicyInvader\P-32-groupe2-SpicyInvader_Level\WcfService\obj\Debug\WcfService.dll
+F:\PROJETS\P_Dev\my-git\SpicyInvader\P-32-groupe2-SpicyInvader_Level\WcfService\obj\Debug\WcfService.pdb
+F:\PROJETS\P_Dev\my-git\SpicyInvader\P-32-groupe2-SpicyInvader_Level\WcfService\bin\Debug\sound.exe
+F:\PROJETS\P_Dev\my-git\SpicyInvader\P-32-groupe2-SpicyInvader_Level\WcfService\bin\Debug\sound.pdb

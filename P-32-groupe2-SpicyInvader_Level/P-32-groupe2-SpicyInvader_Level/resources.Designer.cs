@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace P_32_groupe2_SpicyInvader_Level {
+namespace SpicyInvader {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace P_32_groupe2_SpicyInvader_Level {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("P_32_groupe2_SpicyInvader_Level.resources", typeof(resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SpicyInvader.resources", typeof(resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

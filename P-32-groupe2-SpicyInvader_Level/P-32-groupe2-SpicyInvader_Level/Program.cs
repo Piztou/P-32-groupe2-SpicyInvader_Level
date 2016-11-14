@@ -9,34 +9,28 @@ namespace SpicyInvader
 {
     public static class Program
     {
-
-        public static SpaceShip player = new SpaceShip();
-
-        private static System.Timers.Timer tmrMooveEnememy = new System.Timers.Timer();
-
-
+        public static Level currentLevel;
+        
         static void Main(string[] args)
         {
-            //Provisoir
-            UserInterface.CreateInterface();
-            tmrMooveEnememy.Interval = 420;
-            tmrMooveEnememy.Elapsed += new System.Timers.ElapsedEventHandler(MooveEnemy);
-            tmrMooveEnememy.Start();
             Console.CursorVisible = false;
             Console.SetBufferSize(Constant.Level.WINDOWS_WIDTH,Constant.Level.WINDOWS_HEIGHT);
             Console.SetWindowSize(Constant.Level.WINDOWS_WIDTH, Constant.Level.WINDOWS_HEIGHT);
             Console.CursorVisible = false;
-            Ennemies.CreateEnnemy();
-            player.spawnSpaceShip();
-            //initializes all the barricades
-            Level.InitBaricades();
-            player.Move();
+
+            //TEMP : Initialize the level
+            currentLevel = new Level();
             Console.ReadLine();
         }
         
         public static void MooveEnemy(object sender, EventArgs e)
         {
             Ennemies.SleepTimer();
+        }
+
+        public static void MoovRedSpacShipTimer(object sender, EventArgs e)
+        {
+            RedSpaceship.MoovRedSpaceship();
         }
 
     }

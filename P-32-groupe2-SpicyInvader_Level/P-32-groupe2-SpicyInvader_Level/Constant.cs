@@ -19,6 +19,8 @@ namespace SpicyInvader
 
             public const int WINDOWS_HEIGHT = 30;
 
+            public const int INTERFACE_BORDER = 5;
+
             public class Barricades
             {
 
@@ -40,6 +42,7 @@ namespace SpicyInvader
             public const int ID_BARRICADE = 3;
             public const int ID_PLAYER = 1;
             public const int ID_ENNEMY = 2;
+            public const int ID_SPECIAL = 4;
         }
     }
 }

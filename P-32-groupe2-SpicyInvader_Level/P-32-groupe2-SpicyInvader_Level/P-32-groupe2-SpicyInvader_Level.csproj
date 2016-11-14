@@ -46,7 +46,9 @@
     <Compile Include="Constant.cs" />
     <Compile Include="DEBUG.cs" />
     <Compile Include="Ennemy.cs" />
+    <Compile Include="RedSpaceship.cs" />
     <Compile Include="Level.cs" />
+    <Compile Include="Menu.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Ennemies.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

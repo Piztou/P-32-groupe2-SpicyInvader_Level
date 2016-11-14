@@ -13,6 +13,12 @@ namespace SpicyInvader
 {
     public class Level
     {
+        public static SpaceShip player = new SpaceShip();
+
+        public static string[] pauseString = { "  _____       _    _  _____ ______", " |  __ \\ /\\  | |  | |/ ____|  ____|", " | |__) /  \\ | |  | | (___ | |__   ", " |  ___/ /\\ \\| |  | |\\___ \\|  __| ", " | |  / ____ \\ |__| |____) | |____ ", " |_| /_/    \\_\\____/|_____/|______|", "                                     ", "                                     ", "                                     ", "     Pressez enter pour continuer    " };
+        public static int pauseX = (Constant.Level.WINDOWS_WIDTH - pauseString[0].Length)/2;
+        public static int pauseY = 5;
+        public static string[] endString = { "  _____  ______ _____  _____  _    _ ", " |  __ \\|  ____|  __ \\|  __ \\| |  | |", " | |__) | |__  | |__) | |  | | |  | |", " |  ___/|  __| |  _  /| |  | | |  | |", " | |    | |____| | \\ \\| |__| | |__| |", " |_|    |______|_|  \\_\\_____/ \\____/ " };
         private static int score = 0;
         public static int Score
         {
@@ -26,7 +32,8 @@ namespace SpicyInvader
                 UserInterface.DisplayScore();
             }
         }
-
+        public static bool noMorePlayerLife = false;
+        public static bool pause = false;
         private static int playerLife = 3;
         public static int PlayerLife
         {
@@ -36,6 +43,7 @@ namespace SpicyInvader
             }
             set
             {
+                UserInterface.ErasePlayerScore();
                 playerLife = value;
                 UserInterface.DisplayPlayerLife();
             }
@@ -136,9 +144,34 @@ namespace SpicyInvader
 
         public static Baricade[] barricades;
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        public Level()
+        {
+            pause = false;
+            UserInterface.CreateInterface();
+
+            Ennemies.CreateEnnemy();
+            player.spawnSpaceShip();
+            //initializes all the barricades
+            Level.InitBaricades();
+            Test.Try();
+            player.Move();
+        }
+
         public Level(int _nbLevel, int _difficulty)
         {
 
+        }
+
+        /// <summary>
+        /// Refresh all the graphics from the board elements
+        /// </summary>
+        public static void RefreshAllGraphics()
+        {
+            RefreshAllBaricades();
+            UserInterface.CreateInterface();
         }
 
         /// <summary>
@@ -232,7 +265,7 @@ namespace SpicyInvader
         /// <summary>
         /// Refresh all the barricades
         /// </summary>
-        public static void RefreshAllBaricades()
+        private static void RefreshAllBaricades()
         {
             foreach (Baricade barricade in barricades)
             {
@@ -303,6 +336,25 @@ namespace SpicyInvader
             {
                 b.Hit(_x, _y);
             }
+        }
+
+        public static void Pause(int x, int y)
+        {
+            Console.Clear();
+            pause = true;
+            Write(pauseX,pauseY,pauseString, ConsoleColor.Yellow);
+            Console.ReadLine();
+            Console.Clear();
+            pause = false;
+            RefreshAllGraphics();
+            player.RefreshSpaceShip(x, y);
+        }
+        public static void EndGame()
+        {
+            Console.Clear();
+            pause = true;
+            Write(pauseX, pauseY, endString, ConsoleColor.Yellow);
+
         }
     }
 

@@ -1,0 +1,8 @@
+F:\PROJETS\P_Dev\my-git\SpicyInvader\P-32-groupe2-SpicyInvader_Level\sound\bin\Debug\sound.exe.config
+F:\PROJETS\P_Dev\my-git\SpicyInvader\P-32-groupe2-SpicyInvader_Level\sound\bin\Debug\sound.exe
+F:\PROJETS\P_Dev\my-git\SpicyInvader\P-32-groupe2-SpicyInvader_Level\sound\bin\Debug\sound.pdb
+F:\PROJETS\P_Dev\my-git\SpicyInvader\P-32-groupe2-SpicyInvader_Level\sound\obj\Debug\sound.csprojResolveAssemblyReference.cache
+F:\PROJETS\P_Dev\my-git\SpicyInvader\P-32-groupe2-SpicyInvader_Level\sound\obj\Debug\sound.Properties.Resources.resources
+F:\PROJETS\P_Dev\my-git\SpicyInvader\P-32-groupe2-SpicyInvader_Level\sound\obj\Debug\sound.csproj.GenerateResource.Cache
+F:\PROJETS\P_Dev\my-git\SpicyInvader\P-32-groupe2-SpicyInvader_Level\sound\obj\Debug\sound.exe
+F:\PROJETS\P_Dev\my-git\SpicyInvader\P-32-groupe2-SpicyInvader_Level\sound\obj\Debug\sound.pdb

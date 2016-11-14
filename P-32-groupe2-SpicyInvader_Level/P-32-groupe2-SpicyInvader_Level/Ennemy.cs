@@ -25,6 +25,10 @@ using System.Threading;
 /// Date : 03.10.2016
 /// Version : 2.1.0
 /// Description : the ennemies sprites can now being modified (size)
+/// 
+/// Date : 31.10.2016
+/// Version : 2.2.0
+/// Description : Modification of the shot frequency and adding of a counter of alive ennemies
 /// </summary>
 namespace SpicyInvader
 {
@@ -82,7 +86,7 @@ namespace SpicyInvader
             shootSpeed = _shootSpeed;
             numberOfShootStyle = _shootSpeed;
             isAlive = _alive;
-            
+
             //SetEnnemyTimer();
         }
 
@@ -109,11 +113,11 @@ namespace SpicyInvader
 
 
             //Make ennemy moves down (if the methode return is true, the programm execut the move down methode)
-            if (ennemyPos[0] == (Constant.Level.WINDOWS_WIDTH - ennemyStyle[0,0,0].Length) && isAlive || ennemyPos[0] == 0 && isAlive)
+            if (ennemyPos[0] == (Constant.Level.WINDOWS_WIDTH - ennemyStyle[0, 0, 0].Length) && isAlive || ennemyPos[0] == 0 && isAlive)
             {
                 return true;
             }
-            
+
             //Write only the alive ennemies
             EnnemyWrite();
 
@@ -138,10 +142,11 @@ namespace SpicyInvader
             isAlive = false;
             EnnemyErase();
 
+            Ennemies.numberOfEnnemies--;
+
             Sound.SoundHit();
 
             Level.Score += 100;
-            //UserInterface.DisplayScore();
         }
 
         /// <summary>
@@ -165,7 +170,7 @@ namespace SpicyInvader
         }
 
 
-        public void Fire ()
+        public void Fire()
         {
             mut.WaitOne();
             new Thread(Shoot).Start();
@@ -183,8 +188,11 @@ namespace SpicyInvader
             mut.WaitOne();
             while (!isFinish)
             {
-                OnTimedEvent(ref isFinish);
-                Thread.Sleep(shootSpeed);
+                if (!Level.pause && !Level.noMorePlayerLife)
+                {
+                    OnTimedEvent(ref isFinish);
+                    Thread.Sleep(shootSpeed);
+                }
             }
 
             mut.ReleaseMutex();
@@ -201,7 +209,7 @@ namespace SpicyInvader
             }
             else if (objectHit == Constant.Level.ID_PLAYER)
             {
-                Program.player.SpaceShipHitted();
+                Level.player.SpaceShipHitted();
                 isFinish = true;
             }
             else
@@ -209,7 +217,7 @@ namespace SpicyInvader
                 Level.Erase(startShotX, startShotY, new string[] { ENNEMY_ARMO });
                 Level.Write(startShotX, startShotY += 1, new string[] { ENNEMY_ARMO }, ConsoleColor.Red);
 
-                if (startShotY > Constant.Level.WINDOWS_HEIGHT-2)
+                if (startShotY > Constant.Level.WINDOWS_HEIGHT - 2)
                 {
                     Level.Erase(startShotX, startShotY, new string[] { ENNEMY_ARMO });
                     isFinish = true;
@@ -218,7 +226,7 @@ namespace SpicyInvader
             }
             mut.ReleaseMutex();
         }
-    
+
         /// <summary>
         /// Erase the ennemy (style and hitbox)
         /// </summary>

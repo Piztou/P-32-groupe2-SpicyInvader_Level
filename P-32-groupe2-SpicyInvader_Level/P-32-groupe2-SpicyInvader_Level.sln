@@ -3,7 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P-32-groupe2-SpicyInvader_Level", "P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level.csproj", "{FB8F5549-8FD8-4BF8-BE36-8E739DC6A56B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpicyInvader", "P-32-groupe2-SpicyInvader_Level\SpicyInvader.csproj", "{FB8F5549-8FD8-4BF8-BE36-8E739DC6A56B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6C83428B-D076-414F-94EB-F752C5010BC7} = {6C83428B-D076-414F-94EB-F752C5010BC7}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test-SpicyInvader", "Test-SpicyInvader\Test-SpicyInvader.csproj", "{0CB2A54C-435B-4E21-9341-3DFE926F32F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfService", "WcfService\WcfService.csproj", "{6C83428B-D076-414F-94EB-F752C5010BC7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sound", "sound\sound.csproj", "{0E3CEC5D-36DD-4AD0-9166-AE0DBD1CEABA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +24,18 @@ Global
 		{FB8F5549-8FD8-4BF8-BE36-8E739DC6A56B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB8F5549-8FD8-4BF8-BE36-8E739DC6A56B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB8F5549-8FD8-4BF8-BE36-8E739DC6A56B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CB2A54C-435B-4E21-9341-3DFE926F32F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CB2A54C-435B-4E21-9341-3DFE926F32F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CB2A54C-435B-4E21-9341-3DFE926F32F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CB2A54C-435B-4E21-9341-3DFE926F32F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C83428B-D076-414F-94EB-F752C5010BC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C83428B-D076-414F-94EB-F752C5010BC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C83428B-D076-414F-94EB-F752C5010BC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C83428B-D076-414F-94EB-F752C5010BC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E3CEC5D-36DD-4AD0-9166-AE0DBD1CEABA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E3CEC5D-36DD-4AD0-9166-AE0DBD1CEABA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E3CEC5D-36DD-4AD0-9166-AE0DBD1CEABA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E3CEC5D-36DD-4AD0-9166-AE0DBD1CEABA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

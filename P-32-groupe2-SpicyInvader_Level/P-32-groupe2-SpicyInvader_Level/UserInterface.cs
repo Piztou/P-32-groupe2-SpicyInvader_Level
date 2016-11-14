@@ -11,6 +11,10 @@ using System.Threading.Tasks;
 /// Date : 03.10.2016
 /// Version : 1.0.0
 /// Description : ...
+/// 
+/// Date : 31.10.2016
+/// Version 1.2.0
+/// Dscription : Modification of the DisplayPlayerLife methode and creation of the ErasePlayerLife methode
 /// </summary>
 namespace SpicyInvader
 {
@@ -21,11 +25,15 @@ namespace SpicyInvader
 
         public static void CreateInterface()
         {
+            //Temporal string
+            string interfaceBorder = "";
+
             //Create the interface limite
             for (int i = 0; i < Constant.Level.WINDOWS_WIDTH; i++)
             {
-                Level.Write(i, 5, new string[]{ Convert.ToString(INTERFACE_CHAR) }, ConsoleColor.DarkCyan);
+                interfaceBorder += INTERFACE_CHAR;
             }
+            Level.Write(0, Constant.Level.INTERFACE_BORDER, new string[] { Convert.ToString(interfaceBorder) }, ConsoleColor.DarkCyan);
 
             DisplayPlayerLife();
 
@@ -39,9 +47,32 @@ namespace SpicyInvader
         /// </summary>
         public static void DisplayPlayerLife()
         {
-            for(int i = 0; i < Level.PlayerLife;i++)
+            ///The play lifes's color change according the number of life
+            for (int i = 0; i < Level.PlayerLife; i++)
             {
-                Level.Write(( Constant.Level.WINDOWS_WIDTH - 5) - (i * LIFE_MARGIN), 2, new string[] { " X ", "XXX" });
+                if (Level.PlayerLife >= 3)
+                {
+                    Level.Write((Constant.Level.WINDOWS_WIDTH - 5) - (i * LIFE_MARGIN), 2, new string[] { " X ", "XXX" }, ConsoleColor.Green);
+                }
+                else if (Level.PlayerLife == 2)
+                {
+                    Level.Write((Constant.Level.WINDOWS_WIDTH - 5) - (i * LIFE_MARGIN), 2, new string[] { " X ", "XXX" }, ConsoleColor.Yellow);
+                }
+                else
+                {
+                    Level.Write((Constant.Level.WINDOWS_WIDTH - 5) - (i * LIFE_MARGIN), 2, new string[] { " X ", "XXX" }, ConsoleColor.Red);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Erase the player lifes
+        /// </summary>
+        public static void ErasePlayerScore()
+        {
+            for (int i = 0; i < Level.PlayerLife; i++)
+            {
+                Level.Erase((Constant.Level.WINDOWS_WIDTH - 5) - (i * LIFE_MARGIN), 2, new string[] { " X ", "XXX" });
             }
         }
 

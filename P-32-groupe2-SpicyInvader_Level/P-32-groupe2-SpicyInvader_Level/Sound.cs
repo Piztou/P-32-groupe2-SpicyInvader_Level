@@ -17,12 +17,12 @@ namespace SpicyInvader
             Stream str;
             if (rnd.Next(0, 2) == 0)
             {
-                str = P_32_groupe2_SpicyInvader_Level.resources.Shot1;
+                str = SpicyInvader.resources.Shot1;
                 sound = new SoundPlayer(str);
             }
             else
             {
-                str = P_32_groupe2_SpicyInvader_Level.resources.Shot2;
+                str = SpicyInvader.resources.Shot2;
                 sound = new SoundPlayer(str);
             }
             sound.Play();
@@ -31,7 +31,7 @@ namespace SpicyInvader
         public static void SoundHit()
         {
             Stream str;
-            str = P_32_groupe2_SpicyInvader_Level.resources.Hit;
+            str = SpicyInvader.resources.Hit;
             SoundPlayer sound = new SoundPlayer(str);
             sound.Play();
         }
@@ -39,7 +39,7 @@ namespace SpicyInvader
         public static void SoundMenu()
         {
             Stream str;
-            str = P_32_groupe2_SpicyInvader_Level.resources.MenuMove;
+            str = SpicyInvader.resources.MenuMove;
             SoundPlayer sound = new SoundPlayer(str);
             sound.Play();
         }
@@ -47,7 +47,7 @@ namespace SpicyInvader
         public static void SoundExplosion()
         {
             Stream str;
-            str = P_32_groupe2_SpicyInvader_Level.resources.Explosion;
+            str = SpicyInvader.resources.Explosion;
             SoundPlayer sound = new SoundPlayer(str);
             sound.Play();
         }

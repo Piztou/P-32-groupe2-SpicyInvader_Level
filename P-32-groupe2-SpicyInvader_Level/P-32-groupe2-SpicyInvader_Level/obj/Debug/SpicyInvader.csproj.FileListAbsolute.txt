@@ -1,0 +1,10 @@
+F:\PROJETS\P_Dev\my-git\SpicyInvader\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\obj\Debug\SpicyInvader.resources.resources
+F:\PROJETS\P_Dev\my-git\SpicyInvader\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\obj\Debug\SpicyInvader.csproj.GenerateResource.Cache
+F:\PROJETS\P_Dev\my-git\SpicyInvader\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\bin\Debug\SpicyInvader.exe.config
+F:\PROJETS\P_Dev\my-git\SpicyInvader\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\bin\Debug\SpicyInvader.exe
+F:\PROJETS\P_Dev\my-git\SpicyInvader\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\bin\Debug\SpicyInvader.pdb
+F:\PROJETS\P_Dev\my-git\SpicyInvader\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\obj\Debug\SpicyInvader.exe
+F:\PROJETS\P_Dev\my-git\SpicyInvader\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\obj\Debug\SpicyInvader.pdb
+C:\Users\fasanoan\Desktop\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\bin\Debug\SpicyInvader.exe.config
+C:\Users\fasanoan\Desktop\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\obj\Debug\SpicyInvader.pdb
+F:\PROJETS\P_Dev\my-git\SpicyInvader\P-32-groupe2-SpicyInvader_Level\P-32-groupe2-SpicyInvader_Level\obj\Debug\SpicyInvader.csprojResolveAssemblyReference.cache

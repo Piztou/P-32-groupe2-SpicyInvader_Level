@@ -1,5 +1,4 @@
-﻿//The main program of the SpacyInvaders
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,11 +23,18 @@ using System.Threading;
 /// Date : 26.09.2016
 /// Version 2.1.0
 /// Description : Adding new methode (CreateEnnemy, WhoShoot and HitEnnemy)
+/// 
+/// Date : 31.10.2016
+/// Version 2.1.1
+/// Description : Fix the WhoSoot methode's bug
 /// </summary>
 namespace SpicyInvader
 {
     class Ennemies
     {
+
+        private static System.Timers.Timer tmrMooveEnememy = new System.Timers.Timer();
+
         static Random rdm = new Random();
 
         //Number of display ennemies
@@ -39,13 +45,16 @@ namespace SpicyInvader
         const int HORIZONTAL_MARGIN = 5;
         const int VERTICAL_MARGIN = 3;
 
+        //Ennemies speed
+        public static int ennemySpeed = 350;
+
         //ennemies shoot speed
-        const int ENNEMY_SHOOT_SPEED = 50;
+        public static int ennemyShootSpeed = 40;
 
         //ennemies shoot tic
         const int ENNEMY_SHOOT_TIC = 6;
 
-        int curentTic = 0;
+        public static int curentTic = 0;
 
         //if true : ennemies move right and if false : ennemies move left
         static bool moveRight = true;
@@ -53,10 +62,12 @@ namespace SpicyInvader
         //This array contains every ennemies
         public static Ennemy[,] ennemyArray = new Ennemy[ENNEMY_ARRAY_X, ENNEMY_ARRAY_Y];
 
-       static Mutex mut = new Mutex();
+        public static int numberOfEnnemies = 0;
+
+        static Mutex mut = new Mutex();
 
         //TO DO: Delate
-        
+
 
         /// <summary>
         /// Check every alive ennemy and check if the ennemy positions is the same of the shoot positions
@@ -79,54 +90,60 @@ namespace SpicyInvader
         /// </summary>
         public static void SleepTimer()
         {
-            /*curentTic++;
-
-            if (curentTic == ENNEMY_SHOOT_TIC)
+            if (!Level.pause && !Level.noMorePlayerLife)
             {
-            */
-                WhoShoot();
-            //}
+                curentTic++;
 
-            //if true : ennemy move down once
-            bool arrivedAtBorder = false;
-
-            arrivedAtBorder = false;
-
-            //CHeck every ennemies for know if one touches the border if it is alive
-            foreach (Ennemy ennemy in ennemyArray)
-            {
-                if (ennemy.isAlive && ennemy.MoveEnnemy(moveRight))
+                if (curentTic == ENNEMY_SHOOT_TIC)
                 {
-                    arrivedAtBorder = true;
-                }
-            }
 
-            //Move every ennemies down
-            if (arrivedAtBorder)
-            {
+                    WhoShoot();
+                    curentTic = 0;
+                }
+
+                //if true : ennemy move down once
+                bool arrivedAtBorder = false;
+
+                arrivedAtBorder = false;
+
+                //CHeck every ennemies for know if one touches the border if it is alive
                 foreach (Ennemy ennemy in ennemyArray)
                 {
-                    if (ennemy.isAlive)
+                    if (ennemy.isAlive && ennemy.MoveEnnemy(moveRight))
                     {
-                        ennemy.MoveEnnemyDown();
+                        arrivedAtBorder = true;
                     }
                 }
 
-                //Check if the ennemies have to move left or right
-                if (moveRight)
+                //Move every ennemies down
+                if (arrivedAtBorder)
                 {
-                    moveRight = false;
+                    RedSpaceship aSpaceShip = new RedSpaceship();
+                    foreach (Ennemy ennemy in ennemyArray)
+                    {
+                        if (ennemy.isAlive)
+                        {
+                            ennemy.MoveEnnemyDown();
+                        }
+                    }
+
+                    //Check if the ennemies have to move left or right
+                    if (moveRight)
+                    {
+                        moveRight = false;
+                    }
+                    else
+                    {
+                        moveRight = true;
+                    }
+
                 }
-                else
-                {
-                    moveRight = true;
-                }
+
+                //Console.Beep(410, 200);
+
+                Thread.Sleep(300);
 
             }
-
-
-            Thread.Sleep(300);
-
         }
 
         /// <summary>
@@ -134,6 +151,10 @@ namespace SpicyInvader
         /// </summary>
         public static void CreateEnnemy()
         {
+            //Initialisation timer
+            tmrMooveEnememy.Interval = ennemySpeed;
+            tmrMooveEnememy.Elapsed += new System.Timers.ElapsedEventHandler(Program.MooveEnemy);
+            tmrMooveEnememy.Start();
 
             bool isAlive = true;
 
@@ -143,8 +164,10 @@ namespace SpicyInvader
                 for (int j = 1; j <= ENNEMY_ARRAY_Y; j++)
                 {
                     //Create the ennemy and add it in the ennemy array
-                    Ennemy ennemy = new Ennemy(j % 3, i * HORIZONTAL_MARGIN, (j * VERTICAL_MARGIN) + 4, ENNEMY_SHOOT_SPEED, 3, isAlive);
+                    Ennemy ennemy = new Ennemy(j % 3, i * HORIZONTAL_MARGIN, (j * VERTICAL_MARGIN) + 4, ennemyShootSpeed, 3, isAlive);
                     ennemyArray[i - 1, j - 1] = ennemy;
+
+                    numberOfEnnemies++;
                 }
             }
 
@@ -160,14 +183,18 @@ namespace SpicyInvader
             int rdmEnnemyX;
             int rdmEnnemyY;
 
-            rdmEnnemyX = rdm.Next(0, ENNEMY_ARRAY_X);
-            rdmEnnemyY = rdm.Next(0, ENNEMY_ARRAY_Y);
-            mut.WaitOne();
-            if (ennemyArray[rdmEnnemyX, rdmEnnemyY].isAlive)
+            //Choose a random value for an alive ennemy
+            do
             {
-                ennemyArray[rdmEnnemyX, rdmEnnemyY].Fire();
-            }
-            mut.ReleaseMutex();
+                rdmEnnemyX = rdm.Next(0, ENNEMY_ARRAY_X);
+                rdmEnnemyY = rdm.Next(0, ENNEMY_ARRAY_Y);
+            } while (!ennemyArray[rdmEnnemyX, rdmEnnemyY].isAlive);
+
+            //mut.WaitOne();
+
+            ennemyArray[rdmEnnemyX, rdmEnnemyY].Fire();
+
+            //mut.ReleaseMutex();
         }
     }
 
